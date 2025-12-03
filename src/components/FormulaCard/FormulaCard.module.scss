@@ -1,0 +1,58 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.card {
+  @include card-base;
+  position: relative;
+  padding: $spacing-xl $spacing-lg $spacing-lg;
+  text-align: center;
+  border: 3px dashed $primary-red;
+  background: linear-gradient(to bottom, $white 0%, $cream 100%);
+}
+
+.ribbon {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $primary-red;
+  padding: $spacing-xs $spacing-lg;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-md;
+
+  span {
+    @include heading-accent;
+    font-size: $font-size-lg;
+    color: $white;
+    white-space: nowrap;
+  }
+}
+
+.content {
+  padding: $spacing-lg 0;
+}
+
+.description {
+  @include text-body;
+  font-size: $font-size-base;
+  color: $black;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+.priceWrapper {
+  @include flex-center;
+  background: $gold;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: $radius-full;
+  box-shadow: $shadow-md;
+}
+
+.price {
+  @include text-price;
+  font-size: $font-size-2xl;
+  color: $black;
+}

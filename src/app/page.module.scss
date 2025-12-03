@@ -1,0 +1,305 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+// Supplements section
+.supplements {
+  margin-top: $spacing-xl;
+  padding: $spacing-lg;
+  background: $cream;
+  border-radius: $radius-md;
+  text-align: center;
+
+  h4 {
+    @include heading-accent;
+    font-size: $font-size-lg;
+    color: $primary-red;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.supplementsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-sm;
+}
+
+.supplementItem {
+  background: $white;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-lg;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  border: 1px solid $gray-light;
+}
+
+// Tacos section
+.tacosSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+}
+
+.tacosBlock {
+  background: $white;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+}
+
+.subTitle {
+  @include heading-accent;
+  font-size: $font-size-xl;
+  color: $primary-red;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+}
+
+.subDesc {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  text-align: center;
+  margin-bottom: $spacing-md;
+}
+
+.tacosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.tacosCard {
+  @include flex-column;
+  align-items: center;
+  padding: $spacing-md;
+  background: $cream;
+  border-radius: $radius-md;
+  text-align: center;
+}
+
+.tacosName {
+  @include heading-accent;
+  font-size: $font-size-lg;
+  color: $primary-red;
+}
+
+.tacosViandes {
+  @include text-body;
+  font-size: $font-size-xs;
+  color: $gray;
+  margin: $spacing-xs 0;
+}
+
+.tacosPrice {
+  @include text-price;
+  font-size: $font-size-xl;
+  color: $primary-red;
+}
+
+.viandesChoice {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $black;
+  text-align: center;
+  margin-bottom: $spacing-sm;
+  padding: $spacing-sm;
+  background: $cream;
+  border-radius: $radius-sm;
+}
+
+// Menus section
+.menusSection {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 2px dashed rgba($primary-red, 0.2);
+
+  h4 {
+    @include heading-accent;
+    font-size: $font-size-xl;
+    color: $primary-red;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Accompagnements
+.accompagnements {
+  margin-top: $spacing-xl;
+  text-align: center;
+
+  h4 {
+    @include heading-accent;
+    font-size: $font-size-lg;
+    color: $primary-red;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.accompGrid {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.accompItem {
+  @include flex-center;
+  gap: $spacing-sm;
+  background: $white;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  font-family: $font-body;
+  font-weight: 500;
+}
+
+.accompPrice {
+  @include text-price;
+  font-size: $font-size-lg;
+  color: $primary-red;
+}
+
+// Double section (Salades & Pâtes, Boissons)
+.doubleSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+}
+
+.sectionBlock {
+  background: $cream;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+
+  .subTitle {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.simpleList {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.simpleItem {
+  @include flex-column;
+  padding: $spacing-md;
+  background: $white;
+  border-radius: $radius-sm;
+  border-left: 4px solid $primary-red;
+}
+
+.itemName {
+  @include heading-accent;
+  font-size: $font-size-base;
+  color: $primary-red;
+}
+
+.itemIngredients {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  margin-top: $spacing-xs;
+}
+
+.itemPrice {
+  @include text-price;
+  font-size: $font-size-lg;
+  color: $primary-red;
+  margin-top: $spacing-xs;
+}
+
+// Paninis
+.paninisList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+}
+
+.paniniItem {
+  background: $white;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-lg;
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  font-weight: 500;
+  color: $black;
+  box-shadow: $shadow-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $primary-red;
+    color: $white;
+    transform: translateY(-3px);
+  }
+}
+
+// Boissons
+.boissonsGrid {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.boissonItem {
+  @include flex-between;
+  padding: $spacing-sm $spacing-md;
+  background: $white;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+}
+
+.boissonPrice {
+  @include text-price;
+  font-size: $font-size-lg;
+  color: $primary-red;
+}
+
+// Glaces
+.glacesSection {
+  margin-top: $spacing-xl;
+  text-align: center;
+
+  h4 {
+    @include heading-accent;
+    font-size: $font-size-xl;
+    color: $primary-red;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.glacesGrid {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-md;
+}
+
+.glaceItem {
+  @include flex-column;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  background: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+}
+
+.glacePrice {
+  @include text-price;
+  font-size: $font-size-xl;
+  color: $primary-red;
+  margin-top: $spacing-xs;
+}
+
+.glaceNote {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  font-style: italic;
+}

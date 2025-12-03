@@ -1,0 +1,83 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.card {
+  @include card-base;
+  padding: $spacing-md;
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-red, $gold, $primary-red);
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.name {
+  @include heading-accent;
+  font-size: $font-size-xl;
+  color: $primary-red;
+  margin: 0;
+}
+
+.pizzaIcon {
+  font-size: $font-size-2xl;
+  opacity: 0.8;
+}
+
+.ingredients {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  margin: 0 0 $spacing-md;
+  line-height: $line-height-relaxed;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px dashed rgba($primary-red, 0.2);
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm;
+}
+
+.priceItem {
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  padding: $spacing-xs;
+  background: $cream;
+  border-radius: $radius-sm;
+}
+
+.size {
+  @include text-body;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $black;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sizeDesc {
+  font-size: 0.65rem;
+  color: $gray;
+}
+
+.price {
+  @include text-price;
+  font-size: $font-size-lg;
+  color: $primary-red;
+  margin-top: 2px;
+}

@@ -1,0 +1,53 @@
+// ========================================
+// YOUPIZZA - TYPOGRAPHY SCSS
+// ========================================
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
+
+// Font families
+$font-display: 'Pacifico', cursive;
+$font-accent: 'Lobster', cursive;
+$font-body: 'Poppins', sans-serif;
+$font-numbers: 'Bebas Neue', sans-serif;
+
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3rem;
+$font-size-5xl: 4rem;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Mixins typographiques
+@mixin heading-display {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: $line-height-tight;
+}
+
+@mixin heading-accent {
+  font-family: $font-accent;
+  font-weight: 400;
+  line-height: $line-height-tight;
+}
+
+@mixin text-body {
+  font-family: $font-body;
+  font-weight: 400;
+  line-height: $line-height-normal;
+}
+
+@mixin text-price {
+  font-family: $font-numbers;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}

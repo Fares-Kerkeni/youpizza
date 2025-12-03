@@ -1,0 +1,63 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.card {
+  @include card-base;
+  @include flex-between;
+  padding: $spacing-md;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+}
+
+.icon {
+  font-size: $font-size-2xl;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  @include heading-accent;
+  font-size: $font-size-lg;
+  color: $primary-red;
+  margin: 0 0 $spacing-xs;
+}
+
+.description {
+  @include text-body;
+  font-size: $font-size-sm;
+  color: $gray;
+  margin: 0;
+  line-height: $line-height-normal;
+}
+
+.pieces {
+  display: inline-block;
+  margin-top: $spacing-xs;
+  padding: 2px $spacing-xs;
+  background: $cream;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  color: $gray;
+}
+
+.priceWrapper {
+  @include flex-center;
+  background: $primary-red;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-lg;
+  flex-shrink: 0;
+}
+
+.price {
+  @include text-price;
+  font-size: $font-size-xl;
+  color: $white;
+}

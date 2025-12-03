@@ -1,0 +1,255 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #d62839 0%, #a11829 50%, #7a1120 100%);
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 0%, transparent 70%);
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0,0,0,0.2) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  padding: 120px 2rem 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.pizzaEmoji {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(4rem, 15vw, 7rem);
+  color: $white;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  letter-spacing: -2px;
+}
+
+.slogan {
+  font-family: $font-body;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: rgba($white, 0.9);
+  margin: 0.75rem 0 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba($white, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($white, 0.2);
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $white;
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba($white, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.highlightHalal {
+  @extend .highlight;
+  background: $green-halal;
+  border-color: $green-halal;
+}
+
+.highlightIcon {
+  font-size: 1.1rem;
+}
+
+// Actions
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: $gold;
+  color: $black;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 40px rgba($gold, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 50px rgba($gold, 0.5);
+  }
+}
+
+.btnContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.btnLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.btnPhone {
+  font-family: $font-numbers;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 2px solid rgba($white, 0.4);
+  color: $white;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba($white, 0.1);
+    border-color: $white;
+    transform: translateY(-2px);
+  }
+}
+
+// Scroll hint
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+
+  span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $white;
+  }
+}
+
+.scrollIcon {
+  color: $white;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(8px); }
+  60% { transform: translateY(4px); }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .content {
+    padding: 100px 1.5rem 40px;
+  }
+
+  .pizzaEmoji {
+    font-size: 3.5rem;
+  }
+
+  .highlight {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .primaryBtn {
+    padding: 0.875rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .btnPhone {
+    font-size: 1.1rem;
+  }
+}

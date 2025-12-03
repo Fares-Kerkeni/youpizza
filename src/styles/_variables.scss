@@ -1,0 +1,53 @@
+// ========================================
+// YOUPIZZA - VARIABLES SCSS
+// ========================================
+
+// Couleurs
+$primary-red: #C41E3A;
+$secondary-red: #8B0000;
+$cream: #FFF8E7;
+$white: #FFFFFF;
+$black: #1A1A1A;
+$gold: #D4AF37;
+$green-halal: #2E8B57;
+
+// Couleurs additionnelles
+$gray-light: #F5F5F5;
+$gray: #666666;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large: 1200px;
+
+// Espacements
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+// Border radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-full: 50%;
+
+// Shadows
+$shadow-sm: 0 2px 4px $shadow-color;
+$shadow-md: 0 4px 8px $shadow-color;
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+$shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-navbar: 1000;
+$z-modal: 2000;
+$z-tooltip: 3000;

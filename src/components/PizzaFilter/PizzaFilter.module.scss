@@ -1,0 +1,40 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.filter {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+}
+
+.filterButton {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  background: $white;
+  border: 2px solid $gray-light;
+  border-radius: $radius-lg;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $gray;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $primary-red;
+    color: $primary-red;
+  }
+
+  &.active {
+    background: $primary-red;
+    border-color: $primary-red;
+    color: $white;
+  }
+}
+
+.icon {
+  font-size: $font-size-lg;
+}

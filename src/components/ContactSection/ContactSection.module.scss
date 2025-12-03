@@ -1,0 +1,257 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+
+.section {
+  background: $cream;
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: $primary-red;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $gray;
+    margin: 0.5rem 0 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+// Phones Card (Larger)
+.phonesCard {
+  grid-column: span 2;
+  background: linear-gradient(135deg, $primary-red 0%, darken($primary-red, 10%) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  color: $white;
+
+  @media (max-width: 700px) {
+    grid-column: span 1;
+  }
+
+  h3 {
+    font-family: $font-accent;
+    font-size: 1.3rem;
+    margin: 0 0 1.25rem;
+    opacity: 0.9;
+  }
+}
+
+.phoneButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.phonePrimary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: $gold;
+  color: $black;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: $font-numbers;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.phoneSecondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba($white, 0.15);
+  color: $white;
+  padding: 1rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: $font-numbers;
+  font-size: 1.2rem;
+  border: 2px solid rgba($white, 0.3);
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba($white, 0.25);
+    border-color: $white;
+  }
+}
+
+// Info Cards
+.infoCard {
+  display: flex;
+  gap: 1rem;
+  background: $white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+}
+
+.infoIcon {
+  width: 50px;
+  height: 50px;
+  background: rgba($primary-red, 0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-red;
+  flex-shrink: 0;
+}
+
+.infoContent {
+  h4 {
+    font-family: $font-accent;
+    font-size: 1.1rem;
+    color: $primary-red;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $gray;
+    margin: 0.2rem 0;
+    line-height: 1.4;
+  }
+}
+
+.open {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  background: $green-halal;
+  color: $white;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+// Services Card
+.servicesCard {
+  background: $white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+
+  h4 {
+    font-family: $font-accent;
+    font-size: 1.1rem;
+    color: $primary-red;
+    margin: 0 0 1rem;
+  }
+}
+
+.servicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: $black;
+
+    svg {
+      color: $green-halal;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Conditions Card
+.conditionsCard {
+  background: $white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+
+  h4 {
+    font-family: $font-accent;
+    font-size: 1.1rem;
+    color: $primary-red;
+    margin: 0 0 1rem;
+  }
+}
+
+.conditionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: $gray;
+
+  svg {
+    color: $primary-red;
+    flex-shrink: 0;
+  }
+
+  strong {
+    color: $black;
+  }
+}
+
+// Map
+.mapWrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  iframe {
+    display: block;
+  }
+}

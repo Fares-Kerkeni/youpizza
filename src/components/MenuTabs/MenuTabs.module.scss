@@ -1,0 +1,622 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+
+.menuSection {
+  background: $white;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: $primary-red;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $gray;
+    margin: 0.5rem 0 0;
+  }
+}
+
+// Tabs
+.tabsWrapper {
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  background: $white;
+  padding: 1rem 0;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($primary-red, 0.2), transparent);
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.5rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: $cream;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $gray;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba($primary-red, 0.08);
+    color: $primary-red;
+  }
+
+  &.active {
+    background: $primary-red;
+    color: $white;
+    border-color: $primary-red;
+    box-shadow: 0 4px 15px rgba($primary-red, 0.3);
+  }
+}
+
+.tabIcon {
+  font-size: 1.2rem;
+}
+
+.tabLabel {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.tab.active .tabLabel {
+  @media (max-width: 600px) {
+    display: inline;
+  }
+}
+
+// Content
+.content {
+  padding-top: 2rem;
+}
+
+.categoryContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.categoryInfo {
+  text-align: center;
+  font-size: 0.95rem;
+  color: $gray;
+  background: $cream;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+// Pizza specific styles
+.pizzasContent {
+  max-width: 100%;
+}
+
+.pizzaFilters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.6rem 1.25rem;
+  background: $cream;
+  border: 2px solid $cream;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $gray;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $primary-red;
+    color: $primary-red;
+  }
+
+  &.active {
+    background: $primary-red;
+    border-color: $primary-red;
+    color: $white;
+  }
+}
+
+.priceInfo {
+  text-align: center;
+  font-size: 0.85rem;
+  color: $gray;
+  margin-bottom: 1.5rem;
+
+  span {
+    background: rgba($gold, 0.2);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+  }
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.pizzaCard {
+  background: $white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: $primary-red;
+    box-shadow: 0 8px 30px rgba($primary-red, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.pizzaHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  h3 {
+    font-family: $font-accent;
+    font-size: 1.2rem;
+    color: $primary-red;
+    margin: 0;
+  }
+}
+
+.pizzaEmoji {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.ingredients {
+  font-size: 0.85rem;
+  color: $gray;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba($primary-red, 0.2);
+}
+
+.pizzaPrices {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-family: $font-numbers;
+    font-size: 1.1rem;
+    color: $primary-red;
+
+    small {
+      display: block;
+      font-family: $font-body;
+      font-size: 0.65rem;
+      color: $gray;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+// List items
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: $cream;
+  border-radius: 12px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary-red, 0.05);
+  }
+}
+
+.listItemMain {
+  flex: 1;
+
+  h4 {
+    font-family: $font-accent;
+    font-size: 1.05rem;
+    color: $primary-red;
+    margin: 0 0 0.25rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $gray;
+    margin: 0;
+  }
+}
+
+.pieces {
+  font-size: 0.8rem;
+  color: $gray;
+  font-family: $font-body;
+}
+
+.price {
+  font-family: $font-numbers;
+  font-size: 1.3rem;
+  color: $primary-red;
+  background: $white;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.simpleListItem {
+  padding: 1rem 1.25rem;
+  background: $cream;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+
+  h4 {
+    font-family: $font-accent;
+    font-size: 1rem;
+    color: $primary-red;
+    margin: 0 0 0.25rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $gray;
+    margin: 0;
+  }
+}
+
+// Sub sections
+.subSection {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+.subTitle {
+  font-family: $font-accent;
+  font-size: 1.5rem;
+  color: $primary-red;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+// Sizes grid (Tacos, Bowls)
+.sizesGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.sizeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: $cream;
+  border-radius: 16px;
+  min-width: 140px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary-red, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.sizeName {
+  font-family: $font-accent;
+  font-size: 1.2rem;
+  color: $primary-red;
+}
+
+.sizeDetail {
+  font-size: 0.8rem;
+  color: $gray;
+  margin: 0.25rem 0;
+}
+
+.sizePrice {
+  font-family: $font-numbers;
+  font-size: 1.5rem;
+  color: $black;
+  margin-top: 0.5rem;
+}
+
+.choiceInfo {
+  text-align: center;
+  font-size: 0.9rem;
+  color: $black;
+  margin: 0.5rem 0;
+
+  strong {
+    color: $primary-red;
+  }
+}
+
+// Accompagnements
+.accompSection {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: $cream;
+  border-radius: 16px;
+
+  h4 {
+    font-family: $font-accent;
+    font-size: 1.2rem;
+    color: $primary-red;
+    text-align: center;
+    margin: 0 0 1rem;
+  }
+}
+
+.accompGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.accompItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: $white;
+  border-radius: 100px;
+  font-size: 0.9rem;
+}
+
+// Paninis
+.paniniHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  p {
+    font-size: 0.9rem;
+    color: $gray;
+    margin: 0.5rem 0 0;
+  }
+}
+
+.paniniPrice {
+  display: inline-block;
+  font-family: $font-numbers;
+  font-size: 1.5rem;
+  color: $primary-red;
+  background: $cream;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+}
+
+.paniniGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.paniniItem {
+  padding: 1rem 1.5rem;
+  background: $cream;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $black;
+  transition: all 0.2s;
+  cursor: default;
+
+  &:hover {
+    background: $primary-red;
+    color: $white;
+  }
+}
+
+// Drinks
+.drinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drinkItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: $cream;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.drinkPrice {
+  font-family: $font-numbers;
+  font-size: 1.1rem;
+  color: $primary-red;
+}
+
+// Desserts
+.dessertsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dessertCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: $cream;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary-red, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.dessertName {
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $black;
+  margin-bottom: 0.5rem;
+}
+
+.dessertPrice {
+  font-family: $font-numbers;
+  font-size: 1.3rem;
+  color: $primary-red;
+}
+
+.glacesGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.glaceItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: $cream;
+  border-radius: 12px;
+}
+
+.glacePrice {
+  font-family: $font-numbers;
+  font-size: 1.3rem;
+  color: $primary-red;
+  margin-top: 0.5rem;
+}
+
+.glaceNote {
+  text-align: center;
+  font-size: 0.85rem;
+  color: $gray;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+// Menus
+.menusGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.menuCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, $cream 0%, $white 100%);
+  border: 2px dashed rgba($primary-red, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: $primary-red;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba($primary-red, 0.15);
+  }
+}
+
+.menuBadge {
+  font-family: $font-accent;
+  font-size: 1.3rem;
+  color: $white;
+  background: $primary-red;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+.menuContent {
+  font-size: 0.95rem;
+  color: $gray;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+
+.menuPrice {
+  font-family: $font-numbers;
+  font-size: 2rem;
+  color: $gold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,27 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.columns2 {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.columns3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.columns4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@include tablet {
+  .columns2,
+  .columns3,
+  .columns4 {
+    grid-template-columns: 1fr;
+  }
+}

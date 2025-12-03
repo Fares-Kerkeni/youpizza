@@ -1,0 +1,88 @@
+@import '@/styles/variables';
+@import '@/styles/typography';
+@import '@/styles/mixins';
+
+.section {
+  @include section-padding;
+
+  &.default {
+    background: $cream;
+  }
+
+  &.cream {
+    background: lighten($cream, 2%);
+  }
+
+  &.white {
+    background: $white;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: $primary-red;
+  padding: $spacing-sm $spacing-xl;
+  border-radius: $radius-sm;
+  transform: rotate(-1deg);
+  box-shadow: $shadow-md;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &::before {
+    left: 0;
+    border-width: 10px 10px 0 0;
+    border-color: $secondary-red transparent transparent transparent;
+  }
+
+  &::after {
+    right: 0;
+    border-width: 10px 0 0 10px;
+    border-color: $secondary-red transparent transparent transparent;
+  }
+}
+
+.icon {
+  font-size: $font-size-2xl;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp($font-size-xl, 4vw, $font-size-3xl);
+  color: $white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba($black, 0.2);
+}
+
+.subtitle {
+  @include text-body;
+  font-size: $font-size-base;
+  color: $gray;
+  margin-top: $spacing-md;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  width: 100%;
+}

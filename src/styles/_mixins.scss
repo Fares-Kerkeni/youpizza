@@ -1,0 +1,185 @@
+// ========================================
+// YOUPIZZA - MIXINS SCSS
+// ========================================
+
+@import 'variables';
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+// Flexbox helpers
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Card styles
+@mixin card-base {
+  background: $white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-hover;
+  }
+}
+
+// Button styles
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  background: $primary-red;
+  color: $white;
+  border: none;
+  border-radius: $radius-lg;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $font-size-base;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: $secondary-red;
+    transform: scale(1.05);
+  }
+}
+
+// Section header ribbon style
+@mixin ribbon-header {
+  position: relative;
+  display: inline-block;
+  padding: $spacing-sm $spacing-xl;
+  background: $primary-red;
+  color: $white;
+  transform: rotate(-2deg);
+  box-shadow: $shadow-md;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    border: 15px solid transparent;
+    border-top-color: $secondary-red;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: $secondary-red;
+  }
+
+  &::after {
+    right: 0;
+    border-right-color: $secondary-red;
+  }
+}
+
+// Dotted border style (ticket effect)
+@mixin dotted-border {
+  border: 3px dashed $primary-red;
+  border-radius: $radius-md;
+}
+
+// Badge styles
+@mixin badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: 600;
+}
+
+@mixin badge-halal {
+  @include badge;
+  background: $green-halal;
+  color: $white;
+}
+
+@mixin badge-gold {
+  @include badge;
+  background: $gold;
+  color: $black;
+}
+
+// Price display
+@mixin price-display {
+  font-family: $font-numbers;
+  font-size: $font-size-2xl;
+  color: $primary-red;
+  font-weight: bold;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Section padding
+@mixin section-padding {
+  padding: $spacing-xxl 0;
+}
+
+// Gradient overlay
+@mixin gradient-overlay {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($black, 0.6) 0%,
+      rgba($black, 0.3) 50%,
+      rgba($black, 0.6) 100%
+    );
+    z-index: 1;
+  }
+}
