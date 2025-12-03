@@ -36,13 +36,18 @@ const categories = [
   { id: 'sandwichs', label: 'Sandwichs', icon: '🥪', image: '/images/sandwich.jpg' },
   { id: 'tacos', label: 'Tacos & Bowls', icon: '🌮', image: '/images/tacos.jpg' },
   { id: 'burgers', label: 'Burgers', icon: '🍔', image: '/images/burger.jpg' },
-  { id: 'texmex', label: 'Tex Mex', icon: '🌶️', image: '/images/tacos.jpg' },
-  { id: 'salades', label: 'Salades & Pâtes', icon: '🥗', image: '/images/pizza.jpg' },
-  { id: 'paninis', label: 'Paninis', icon: '🥖', image: '/images/sandwich.jpg' },
-  { id: 'boissons', label: 'Boissons', icon: '🥤', image: '/images/pizza.jpg' },
-  { id: 'desserts', label: 'Desserts', icon: '🍰', image: '/images/pizza.jpg' },
-  { id: 'menus', label: 'Menus', icon: '🎁', image: '/images/pizza.jpg' },
+  { id: 'texmex', label: 'Tex Mex', icon: '🌶️', image: '/images/tacos2.jpg' },
+  { id: 'salades', label: 'Salades & Pâtes', icon: '🥗', image: '/images/salad.jpg' },
+  { id: 'paninis', label: 'Paninis', icon: '🥖', image: '/images/panini.jpg' },
+  { id: 'boissons', label: 'Boissons', icon: '🥤', image: '/images/drink.jpg' },
+  { id: 'desserts', label: 'Desserts', icon: '🍰', image: '/images/dessert.jpg' },
+  { id: 'menus', label: 'Menus', icon: '🎁', image: '/images/pizza2.jpg' },
 ];
+
+// Images variées pour les cartes
+const pizzaImages = ['/images/pizza.jpg', '/images/pizza2.jpg', '/images/pizza3.jpg'];
+const burgerImages = ['/images/burger.jpg', '/images/burger2.jpg', '/images/burger3.jpg'];
+const sandwichImages = ['/images/sandwich.jpg', '/images/sandwich2.jpg'];
 
 export default function MenuTabs() {
   const [activeTab, setActiveTab] = useState('pizzas');
@@ -104,7 +109,7 @@ export default function MenuTabs() {
                     <div className={styles.pizzaHeader}>
                       <h3>{pizza.name}</h3>
                       <Image
-                        src="/images/pizza.jpg"
+                        src={pizzaImages[index % pizzaImages.length]}
                         alt={pizza.name}
                         width={50}
                         height={50}
@@ -138,7 +143,7 @@ export default function MenuTabs() {
                   className={styles.listItem}
                 >
                   <Image
-                    src="/images/sandwich.jpg"
+                    src={sandwichImages[index % sandwichImages.length]}
                     alt={item.name}
                     width={60}
                     height={60}
@@ -208,7 +213,7 @@ export default function MenuTabs() {
                   className={styles.listItem}
                 >
                   <Image
-                    src="/images/burger.jpg"
+                    src={burgerImages[index % burgerImages.length]}
                     alt={item.name}
                     width={60}
                     height={60}
