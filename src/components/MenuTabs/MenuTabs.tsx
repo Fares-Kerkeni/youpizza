@@ -429,7 +429,13 @@ export default function MenuTabs() {
                 className={`${styles.tab} ${activeTab === cat.id ? styles.active : ''}`}
                 onClick={() => setActiveTab(cat.id)}
               >
-                <span className={styles.tabIcon}>{cat.icon}</span>
+                <Image
+                  src={cat.image}
+                  alt={cat.label}
+                  width={36}
+                  height={36}
+                  className={styles.tabImage}
+                />
                 <span className={styles.tabLabel}>{cat.label}</span>
               </button>
             ))}

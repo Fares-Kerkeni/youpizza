@@ -99,7 +99,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   background: $cream;
   border: 2px solid transparent;
   border-radius: 100px;
@@ -114,6 +114,7 @@
   &:hover {
     background: rgba($primary-red, 0.08);
     color: $primary-red;
+    border-color: rgba($primary-red, 0.3);
   }
 
   &.active {
@@ -124,8 +125,22 @@
   }
 }
 
+.tabImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba($primary-red, 0.2);
+  flex-shrink: 0;
+}
+
+.tab.active .tabImage {
+  border-color: rgba($white, 0.5);
+}
+
 .tabIcon {
   font-size: 1.2rem;
+  display: none;
 }
 
 .tabLabel {
@@ -237,28 +252,12 @@
   overflow: hidden;
   transition: all 0.3s;
   position: relative;
-
-  // Red stripe on left
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, $primary-red, rgba($primary-red, 0.5));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+  border-left: 4px solid $primary-red;
 
   &:hover {
     border-color: $primary-red;
     box-shadow: 0 8px 30px rgba($primary-red, 0.1);
     transform: translateY(-2px);
-
-    &::before {
-      opacity: 1;
-    }
   }
 }
 
@@ -349,27 +348,11 @@
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
-
-  // Red stripe on hover
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: $primary-red;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-  }
+  border-left: 4px solid $primary-red;
 
   &:hover {
     background: rgba($primary-red, 0.05);
-    padding-left: 1.5rem;
-
-    &::before {
-      transform: translateX(0);
-    }
+    box-shadow: 0 4px 15px rgba($primary-red, 0.1);
   }
 }
 
