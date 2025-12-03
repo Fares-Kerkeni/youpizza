@@ -30,28 +30,17 @@
 }
 
 .brand {
-  h3 {
-    font-family: $font-display;
-    font-size: 2rem;
-    margin: 0;
+  @media (max-width: 768px) {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
-  }
-
-  p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin: 0.25rem 0 0;
+    justify-content: center;
   }
 }
 
-.emoji {
-  font-size: 1.5rem;
+.footerLogo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .contact {

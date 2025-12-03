@@ -44,10 +44,88 @@ const categories = [
   { id: 'menus', label: 'Menus', icon: '🎁', image: '/images/pizza2.jpg' },
 ];
 
-// Images variées pour les cartes
-const pizzaImages = ['/images/pizza.jpg', '/images/pizza2.jpg', '/images/pizza3.jpg'];
-const burgerImages = ['/images/burger.jpg', '/images/burger2.jpg', '/images/burger3.jpg'];
-const sandwichImages = ['/images/sandwich.jpg', '/images/sandwich2.jpg'];
+// Images variées pour chaque catégorie
+const pizzaImages = [
+  '/images/pizza-margherita.jpg',
+  '/images/pizza-pepperoni.jpg',
+  '/images/pizza-veggie.jpg',
+  '/images/pizza-cheese.jpg',
+  '/images/pizza-meat.jpg',
+  '/images/pizza-bbq.jpg',
+  '/images/pizza-seafood.jpg',
+  '/images/pizza-calzone.jpg',
+  '/images/pizza-ham.jpg',
+  '/images/pizza-mushroom.jpg',
+  '/images/pizza-gourmet.jpg',
+  '/images/pizza-fresh.jpg',
+  '/images/pizza-slice.jpg',
+  '/images/pizza-wood.jpg',
+  '/images/pizza-classic.jpg',
+  '/images/pizza.jpg',
+  '/images/pizza2.jpg',
+  '/images/pizza3.jpg',
+];
+
+const sandwichImages = [
+  '/images/sandwich-club.jpg',
+  '/images/sandwich-meat.jpg',
+  '/images/sandwich-cheese.jpg',
+  '/images/sandwich-veggie.jpg',
+  '/images/sandwich-ham.jpg',
+  '/images/sandwich-chicken.jpg',
+  '/images/sandwich-steak.jpg',
+  '/images/sandwich-kebab.jpg',
+  '/images/sandwich-wrap.jpg',
+  '/images/sandwich-baguette.jpg',
+  '/images/sandwich.jpg',
+  '/images/sandwich2.jpg',
+];
+
+const burgerImages = [
+  '/images/burger-cheese.jpg',
+  '/images/burger-double.jpg',
+  '/images/burger-chicken.jpg',
+  '/images/burger-bacon.jpg',
+  '/images/burger-classic.jpg',
+  '/images/burger.jpg',
+  '/images/burger2.jpg',
+  '/images/burger3.jpg',
+];
+
+const texmexImages = [
+  '/images/wings.jpg',
+  '/images/nuggets.jpg',
+  '/images/mozzasticks.jpg',
+  '/images/onionrings.jpg',
+  '/images/calamars.jpg',
+  '/images/tacos.jpg',
+  '/images/tacos2.jpg',
+  '/images/tacos-simple.jpg',
+  '/images/tacos-double.jpg',
+];
+
+const saladImages = [
+  '/images/salad-chicken.jpg',
+  '/images/salad-nicoise.jpg',
+  '/images/salad-goat.jpg',
+  '/images/salad-salmon.jpg',
+  '/images/salad.jpg',
+];
+
+const dessertImages = [
+  '/images/brownie.jpg',
+  '/images/tarte-pomme.jpg',
+  '/images/tarte-citron.jpg',
+  '/images/tiramisu.jpg',
+  '/images/glace.jpg',
+  '/images/dessert.jpg',
+];
+
+const paniniImages = [
+  '/images/panini-viande.jpg',
+  '/images/panini-fromage.jpg',
+  '/images/panini.jpg',
+];
 
 export default function MenuTabs() {
   const [activeTab, setActiveTab] = useState('pizzas');
@@ -258,6 +336,13 @@ export default function MenuTabs() {
                   transition={{ delay: index * 0.03 }}
                   className={styles.listItem}
                 >
+                  <Image
+                    src={texmexImages[index % texmexImages.length]}
+                    alt={item.name}
+                    width={60}
+                    height={60}
+                    className={styles.listItemImage}
+                  />
                   <div className={styles.listItemMain}>
                     <h4>{item.name} {item.pieces && <span className={styles.pieces}>({item.pieces} pièces)</span>}</h4>
                     {item.description && <p>{item.description}</p>}
@@ -288,9 +373,18 @@ export default function MenuTabs() {
               <p className={styles.categoryInfo}>Servies avec pain et sauce vinaigrette</p>
               <div className={styles.itemsList}>
                 {salades.map((item, index) => (
-                  <div key={item.name} className={styles.simpleListItem}>
-                    <h4>{item.name}</h4>
-                    <p>{item.ingredients.join(', ')}</p>
+                  <div key={item.name} className={styles.listItem}>
+                    <Image
+                      src={saladImages[index % saladImages.length]}
+                      alt={item.name}
+                      width={60}
+                      height={60}
+                      className={styles.listItemImage}
+                    />
+                    <div className={styles.listItemMain}>
+                      <h4>{item.name}</h4>
+                      <p>{item.ingredients.join(', ')}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -367,8 +461,15 @@ export default function MenuTabs() {
         return (
           <div className={styles.categoryContent}>
             <div className={styles.dessertsGrid}>
-              {desserts.map((item) => (
+              {desserts.map((item, index) => (
                 <div key={item.name} className={styles.dessertCard}>
+                  <Image
+                    src={dessertImages[index % dessertImages.length]}
+                    alt={item.name}
+                    width={80}
+                    height={80}
+                    className={styles.dessertImage}
+                  />
                   <span className={styles.dessertName}>{item.name}</span>
                   <span className={styles.dessertPrice}>{item.price.toFixed(2)}€</span>
                 </div>

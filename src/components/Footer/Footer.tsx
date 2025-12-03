@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ArrowUp, Phone } from 'lucide-react';
 import { restaurant } from '@/data/menu';
 import styles from './Footer.module.scss';
@@ -14,9 +15,13 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.main}>
           <div className={styles.brand}>
-            <span className={styles.emoji}>🍕</span>
-            <h3>{restaurant.nom}</h3>
-            <p>{restaurant.slogan}</p>
+            <Image
+              src="/images/logo.webp"
+              alt="YouPizza - Tout le monde l'adore"
+              width={180}
+              height={60}
+              className={styles.footerLogo}
+            />
           </div>
 
           <div className={styles.contact}>
