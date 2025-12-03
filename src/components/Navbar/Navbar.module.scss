@@ -18,14 +18,6 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     padding: 0.5rem 0;
 
-    .logoName {
-      color: $primary-red;
-    }
-
-    .logoSlogan {
-      color: $gray;
-    }
-
     .badge {
       background: rgba($black, 0.05);
       color: $black;
@@ -54,31 +46,27 @@
   padding: 0;
 }
 
-.logoIcon {
-  font-size: 2.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+.logoImage {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+
+  @media (max-width: 600px) {
+    height: 35px;
+  }
 }
 
-.logoText {
-  display: flex;
-  flex-direction: column;
+.scrolled .logoImage {
+  filter: none;
 }
 
-.logoName {
-  font-family: $font-display;
-  font-size: 1.75rem;
-  color: $white;
-  line-height: 1;
-  transition: color 0.3s;
-}
-
-.logoSlogan {
-  font-family: $font-body;
-  font-size: 0.7rem;
-  color: rgba($white, 0.8);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: color 0.3s;
+.mobileLogoImage {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 // Center badges

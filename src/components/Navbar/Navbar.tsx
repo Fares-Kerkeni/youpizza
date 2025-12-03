@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { restaurant } from '@/data/menu';
 import styles from './Navbar.module.scss';
@@ -29,11 +30,14 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <button className={styles.logo} onClick={() => scrollToSection('hero')}>
-          <span className={styles.logoIcon}>🍕</span>
-          <div className={styles.logoText}>
-            <span className={styles.logoName}>YouPizza</span>
-            <span className={styles.logoSlogan}>Tout le monde l'adore</span>
-          </div>
+          <Image
+            src="/images/logo.webp"
+            alt="YouPizza - Tout le monde l'adore"
+            width={150}
+            height={50}
+            className={styles.logoImage}
+            priority
+          />
         </button>
 
         <div className={styles.centerInfo}>
@@ -74,7 +78,13 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''}`}>
         <div className={styles.mobileHeader}>
-          <span className={styles.mobileTitle}>YouPizza</span>
+          <Image
+            src="/images/logo.webp"
+            alt="YouPizza"
+            width={120}
+            height={40}
+            className={styles.mobileLogoImage}
+          />
           <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
             <X size={24} />
           </button>
