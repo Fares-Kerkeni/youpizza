@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Phone, ChevronDown } from 'lucide-react';
 import { restaurant } from '@/data/menu';
@@ -16,8 +17,10 @@ export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.background}>
+        <div className={styles.overlay}></div>
         <div className={styles.pattern}></div>
         <div className={styles.gradient}></div>
+        <div className={styles.stripes}></div>
       </div>
 
       <div className={styles.content}>
@@ -27,7 +30,14 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           className={styles.main}
         >
-          <div className={styles.pizzaEmoji}>🍕</div>
+          <Image
+            src="/images/pizza.jpg"
+            alt="Pizza YouPizza"
+            width={140}
+            height={140}
+            className={styles.pizzaImage}
+            priority
+          />
           <h1 className={styles.title}>YouPizza</h1>
           <p className={styles.slogan}>{restaurant.slogan}</p>
 

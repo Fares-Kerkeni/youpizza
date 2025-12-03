@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './MenuTabs.module.scss';
 
@@ -31,16 +32,16 @@ import {
 } from '@/data/menu';
 
 const categories = [
-  { id: 'pizzas', label: 'Pizzas', icon: '🍕' },
-  { id: 'sandwichs', label: 'Sandwichs', icon: '🥪' },
-  { id: 'tacos', label: 'Tacos & Bowls', icon: '🌮' },
-  { id: 'burgers', label: 'Burgers', icon: '🍔' },
-  { id: 'texmex', label: 'Tex Mex', icon: '🌶️' },
-  { id: 'salades', label: 'Salades & Pâtes', icon: '🥗' },
-  { id: 'paninis', label: 'Paninis', icon: '🥖' },
-  { id: 'boissons', label: 'Boissons', icon: '🥤' },
-  { id: 'desserts', label: 'Desserts', icon: '🍰' },
-  { id: 'menus', label: 'Menus', icon: '🎁' },
+  { id: 'pizzas', label: 'Pizzas', icon: '🍕', image: '/images/pizza.jpg' },
+  { id: 'sandwichs', label: 'Sandwichs', icon: '🥪', image: '/images/sandwich.jpg' },
+  { id: 'tacos', label: 'Tacos & Bowls', icon: '🌮', image: '/images/tacos.jpg' },
+  { id: 'burgers', label: 'Burgers', icon: '🍔', image: '/images/burger.jpg' },
+  { id: 'texmex', label: 'Tex Mex', icon: '🌶️', image: '/images/tacos.jpg' },
+  { id: 'salades', label: 'Salades & Pâtes', icon: '🥗', image: '/images/pizza.jpg' },
+  { id: 'paninis', label: 'Paninis', icon: '🥖', image: '/images/sandwich.jpg' },
+  { id: 'boissons', label: 'Boissons', icon: '🥤', image: '/images/pizza.jpg' },
+  { id: 'desserts', label: 'Desserts', icon: '🍰', image: '/images/pizza.jpg' },
+  { id: 'menus', label: 'Menus', icon: '🎁', image: '/images/pizza.jpg' },
 ];
 
 export default function MenuTabs() {
@@ -78,13 +79,13 @@ export default function MenuTabs() {
                 className={`${styles.filterBtn} ${pizzaBase === 'tomate' ? styles.active : ''}`}
                 onClick={() => setPizzaBase('tomate')}
               >
-                🍅 Base Tomate
+                Base Tomate
               </button>
               <button
                 className={`${styles.filterBtn} ${pizzaBase === 'creme' ? styles.active : ''}`}
                 onClick={() => setPizzaBase('creme')}
               >
-                🥛 Base Crème
+                Base Crème
               </button>
             </div>
             <div className={styles.priceInfo}>
@@ -99,15 +100,23 @@ export default function MenuTabs() {
                   transition={{ delay: index * 0.02 }}
                   className={styles.pizzaCard}
                 >
-                  <div className={styles.pizzaHeader}>
-                    <h3>{pizza.name}</h3>
-                    <span className={styles.pizzaEmoji}>🍕</span>
-                  </div>
-                  <p className={styles.ingredients}>{pizza.ingredients.join(', ')}</p>
-                  <div className={styles.pizzaPrices}>
-                    <span><small>J</small> {pizza.prices.junior.toFixed(2)}€</span>
-                    <span><small>S</small> {pizza.prices.senior.toFixed(2)}€</span>
-                    <span><small>M</small> {pizza.prices.mega.toFixed(2)}€</span>
+                  <div className={styles.pizzaCardInner}>
+                    <div className={styles.pizzaHeader}>
+                      <h3>{pizza.name}</h3>
+                      <Image
+                        src="/images/pizza.jpg"
+                        alt={pizza.name}
+                        width={50}
+                        height={50}
+                        className={styles.pizzaImageSmall}
+                      />
+                    </div>
+                    <p className={styles.ingredients}>{pizza.ingredients.join(', ')}</p>
+                    <div className={styles.pizzaPrices}>
+                      <span><small>J</small> {pizza.prices.junior.toFixed(2)}€</span>
+                      <span><small>S</small> {pizza.prices.senior.toFixed(2)}€</span>
+                      <span><small>M</small> {pizza.prices.mega.toFixed(2)}€</span>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -128,6 +137,13 @@ export default function MenuTabs() {
                   transition={{ delay: index * 0.03 }}
                   className={styles.listItem}
                 >
+                  <Image
+                    src="/images/sandwich.jpg"
+                    alt={item.name}
+                    width={60}
+                    height={60}
+                    className={styles.listItemImage}
+                  />
                   <div className={styles.listItemMain}>
                     <h4>{item.name}</h4>
                     <p>{item.description}</p>
@@ -145,7 +161,7 @@ export default function MenuTabs() {
             <p className={styles.categoryInfo}>Viande au choix + Pommes de terre + Sauce fromagère + Frites</p>
 
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🌮 Tacos</h3>
+              <h3 className={styles.subTitle}>Tacos</h3>
               <div className={styles.sizesGrid}>
                 {tacosSizes.map((size) => (
                   <div key={size.name} className={styles.sizeCard}>
@@ -164,7 +180,7 @@ export default function MenuTabs() {
             </div>
 
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🥗 Bowls</h3>
+              <h3 className={styles.subTitle}>Bowls</h3>
               <div className={styles.sizesGrid}>
                 {bowlsSizes.map((size) => (
                   <div key={size.name} className={styles.sizeCard}>
@@ -191,6 +207,13 @@ export default function MenuTabs() {
                   transition={{ delay: index * 0.05 }}
                   className={styles.listItem}
                 >
+                  <Image
+                    src="/images/burger.jpg"
+                    alt={item.name}
+                    width={60}
+                    height={60}
+                    className={styles.listItemImage}
+                  />
                   <div className={styles.listItemMain}>
                     <h4>{item.name}</h4>
                     <p>{item.description}</p>
@@ -201,7 +224,7 @@ export default function MenuTabs() {
             </div>
 
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🍟 Menus Burgers</h3>
+              <h3 className={styles.subTitle}>Menus Burgers</h3>
               <div className={styles.itemsList}>
                 {menusBurgers.map((item, index) => (
                   <div key={item.name} className={styles.listItem}>
@@ -256,7 +279,7 @@ export default function MenuTabs() {
         return (
           <div className={styles.categoryContent}>
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🥗 Salades - {saladesPrice.toFixed(2)}€</h3>
+              <h3 className={styles.subTitle}>Salades - {saladesPrice.toFixed(2)}€</h3>
               <p className={styles.categoryInfo}>Servies avec pain et sauce vinaigrette</p>
               <div className={styles.itemsList}>
                 {salades.map((item, index) => (
@@ -269,7 +292,7 @@ export default function MenuTabs() {
             </div>
 
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🍝 Pâtes - {patesPrice.toFixed(2)}€</h3>
+              <h3 className={styles.subTitle}>Pâtes - {patesPrice.toFixed(2)}€</h3>
               <p className={styles.categoryInfo}>Pennes al dente servies avec du parmesan</p>
               <div className={styles.itemsList}>
                 {pates.map((item, index) => (
@@ -348,7 +371,7 @@ export default function MenuTabs() {
             </div>
 
             <div className={styles.subSection}>
-              <h3 className={styles.subTitle}>🍨 Glaces {glaces.marque}</h3>
+              <h3 className={styles.subTitle}>Glaces {glaces.marque}</h3>
               <div className={styles.glacesGrid}>
                 {glaces.sizes.map((size) => (
                   <div key={size.name} className={styles.glaceItem}>
