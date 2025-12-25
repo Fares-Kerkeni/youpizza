@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  youpizza:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: youpizza
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - youpizza-network
+
+networks:
+  youpizza-network:
+    driver: bridge
