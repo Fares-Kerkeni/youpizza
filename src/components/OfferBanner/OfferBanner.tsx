@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Truck, ShoppingBag, Sparkles, Zap } from 'lucide-react';
+import { Truck, ShoppingBag, Sparkles, Star } from 'lucide-react';
 import { offres } from '@/data/menu';
 import styles from './OfferBanner.module.scss';
 
@@ -39,7 +39,7 @@ export default function OfferBanner() {
             className={styles.offerCard}
           >
             <div className={styles.badge}>
-              <Zap size={16} />
+              <Star size={16} />
               <span>PROMO</span>
             </div>
             <div className={styles.offerIconWrapper}>
@@ -59,7 +59,7 @@ export default function OfferBanner() {
             className={`${styles.offerCard} ${styles.emporter}`}
           >
             <div className={`${styles.badge} ${styles.badgeGold}`}>
-              <Zap size={16} />
+              <Star size={16} />
               <span>BEST</span>
             </div>
             <div className={styles.offerIconWrapper}>
