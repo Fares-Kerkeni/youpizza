@@ -66,20 +66,37 @@ const pizzaImages = [
   '/images/pizza3.jpg',
 ];
 
-// Fonction pour obtenir une image basée sur le nom de la pizza
-const getPizzaImage = (pizzaName: string, index: number): string => {
+// Fonction pour obtenir une image basée sur le nom et les ingrédients de la pizza
+const getPizzaImage = (pizzaName: string, ingredients: string[]): string => {
   const name = pizzaName.toLowerCase();
+  const ingredientsStr = ingredients.join(' ').toLowerCase();
+
+  // Pizzas spécifiques par nom
   if (name.includes('marguerita') || name.includes('margherita')) return '/images/pizza-margherita.jpg';
   if (name.includes('calzone')) return '/images/pizza-calzone.jpg';
-  if (name.includes('fromage') || name.includes('4 fromages') || name.includes('5 fromages')) return '/images/pizza-cheese.jpg';
+  if (name.includes('4 fromages') || name.includes('5 fromages')) return '/images/pizza-cheese.jpg';
   if (name.includes('végétarienne')) return '/images/pizza-veggie.jpg';
   if (name.includes('fruits de mer')) return '/images/pizza-seafood.jpg';
-  if (name.includes('barbecue') || name.includes('bbq')) return '/images/pizza-bbq.jpg';
-  if (name.includes('jambon') || name.includes('reine')) return '/images/pizza-ham.jpg';
-  if (name.includes('champignon')) return '/images/pizza-mushroom.jpg';
-  if (name.includes('royale') || name.includes('cannibale') || name.includes('carnivore')) return '/images/pizza-meat.jpg';
-  // Pour les autres, rotation dans les images disponibles
-  return pizzaImages[index % pizzaImages.length];
+  if (name.includes('barbecue')) return '/images/pizza-bbq.jpg';
+
+  // Pizzas par ingrédients principaux
+  if (ingredientsStr.includes('pepperoni') || ingredientsStr.includes('chorizo')) return '/images/pizza-pepperoni.jpg';
+  if (ingredientsStr.includes('jambon') && ingredientsStr.includes('champignon')) return '/images/pizza-ham.jpg';
+  if (ingredientsStr.includes('champignon') && !ingredientsStr.includes('jambon')) return '/images/pizza-mushroom.jpg';
+  if (ingredientsStr.includes('gorgonzola') || ingredientsStr.includes('bleu')) return '/images/pizza-cheese.jpg';
+  if (ingredientsStr.includes('chèvre') && ingredientsStr.includes('miel')) return '/images/pizza-gourmet.jpg';
+  if (ingredientsStr.includes('saumon')) return '/images/pizza-seafood.jpg';
+  if ((ingredientsStr.includes('bœuf') || ingredientsStr.includes('merguez')) && ingredientsStr.includes('poulet')) return '/images/pizza-meat.jpg';
+  if (ingredientsStr.includes('fruits de mer') || ingredientsStr.includes('cocktail de fruits de mer')) return '/images/pizza-seafood.jpg';
+
+  // Pizzas gourmandes/spéciales
+  if (name.includes('cannibale') || name.includes('carnivore') || name.includes('royale')) return '/images/pizza-meat.jpg';
+  if (name.includes('kebab') || name.includes('orientale')) return '/images/pizza-meat.jpg';
+  if (ingredientsStr.includes('artichauts') && ingredientsStr.includes('olives')) return '/images/pizza-veggie.jpg';
+  if (ingredientsStr.includes('bacon') || ingredientsStr.includes('lardons')) return '/images/pizza-ham.jpg';
+
+  // Pizza classique par défaut
+  return '/images/pizza-classic.jpg';
 };
 
 const sandwichImages = [
@@ -203,7 +220,7 @@ export default function MenuTabs() {
                     <div className={styles.pizzaHeader}>
                       <h3>{pizza.name}</h3>
                       <Image
-                        src={getPizzaImage(pizza.name, index)}
+                        src={getPizzaImage(pizza.name, pizza.ingredients)}
                         alt={pizza.name}
                         width={50}
                         height={50}
