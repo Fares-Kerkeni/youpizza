@@ -19,8 +19,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <MenuTabs />
         <OfferBanner />
+        <MenuTabs />
         <ContactSection />
       </main>
       <Footer />
