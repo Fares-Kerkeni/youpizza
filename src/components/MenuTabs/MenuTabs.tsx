@@ -66,6 +66,22 @@ const pizzaImages = [
   '/images/pizza3.jpg',
 ];
 
+// Fonction pour obtenir une image basée sur le nom de la pizza
+const getPizzaImage = (pizzaName: string, index: number): string => {
+  const name = pizzaName.toLowerCase();
+  if (name.includes('marguerita') || name.includes('margherita')) return '/images/pizza-margherita.jpg';
+  if (name.includes('calzone')) return '/images/pizza-calzone.jpg';
+  if (name.includes('fromage') || name.includes('4 fromages') || name.includes('5 fromages')) return '/images/pizza-cheese.jpg';
+  if (name.includes('végétarienne')) return '/images/pizza-veggie.jpg';
+  if (name.includes('fruits de mer')) return '/images/pizza-seafood.jpg';
+  if (name.includes('barbecue') || name.includes('bbq')) return '/images/pizza-bbq.jpg';
+  if (name.includes('jambon') || name.includes('reine')) return '/images/pizza-ham.jpg';
+  if (name.includes('champignon')) return '/images/pizza-mushroom.jpg';
+  if (name.includes('royale') || name.includes('cannibale') || name.includes('carnivore')) return '/images/pizza-meat.jpg';
+  // Pour les autres, rotation dans les images disponibles
+  return pizzaImages[index % pizzaImages.length];
+};
+
 const sandwichImages = [
   '/images/sandwich-club.jpg',
   '/images/sandwich-meat.jpg',
@@ -187,7 +203,7 @@ export default function MenuTabs() {
                     <div className={styles.pizzaHeader}>
                       <h3>{pizza.name}</h3>
                       <Image
-                        src={pizzaImages[index % pizzaImages.length]}
+                        src={getPizzaImage(pizza.name, index)}
                         alt={pizza.name}
                         width={50}
                         height={50}
